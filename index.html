@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teachers Kingdom</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --blue: #185FA5;
+      --text: #1a1a1a;
+      --text-muted: #666;
+      --border: #e5e5e5;
+      --bg-secondary: #f7f7f5;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text); background: #fff; }
+
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 2rem; border-bottom: 0.5px solid var(--border);
+    }
+    .nav-logo { font-size: 18px; font-weight: 500; }
+    .nav-lang { display: flex; gap: 8px; }
+    .lang-btn {
+      font-size: 13px; padding: 4px 10px;
+      border: 0.5px solid var(--border); border-radius: var(--radius-md);
+      background: transparent; color: var(--text-muted); cursor: pointer;
+    }
+    .lang-btn.active { background: var(--bg-secondary); color: var(--text); }
+
+    .hero { padding: 4rem 2rem 3rem; text-align: center; max-width: 680px; margin: 0 auto; }
+    .hero-tag { font-size: 12px; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 1rem; }
+    .hero h1 { font-size: 36px; font-weight: 500; line-height: 1.25; margin-bottom: 1rem; }
+    .hero-accent { color: var(--blue); }
+    .hero p { font-size: 16px; color: var(--text-muted); line-height: 1.7; margin-bottom: 2rem; }
+    .hero-slogan {
+      font-size: 14px; font-weight: 500; color: var(--text-muted);
+      border: 0.5px solid var(--border); display: inline-block;
+      padding: 6px 18px; border-radius: var(--radius-md); margin-bottom: 2rem;
+    }
+    .hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+    .btn-primary {
+      background: var(--blue); color: #fff; border: none;
+      padding: 12px 28px; border-radius: var(--radius-md);
+      font-size: 15px; cursor: pointer; font-family: inherit;
+    }
+    .btn-secondary {
+      background: transparent; color: var(--text);
+      border: 0.5px solid var(--border); padding: 12px 28px;
+      border-radius: var(--radius-md); font-size: 15px;
+      cursor: pointer; font-family: inherit;
+    }
+
+    .divider { height: 0.5px; background: var(--border); margin: 0 2rem; }
+
+    .services { padding: 3rem 2rem; }
+    .section-title { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .service-card { background: var(--bg-secondary); border-radius: var(--radius-lg); padding: 1.25rem; }
+    .service-icon { font-size: 20px; color: var(--blue); margin-bottom: 10px; }
+    .service-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+    .service-card p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+    .about { padding: 2.5rem 2rem; display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+    .about-text h2 { font-size: 22px; font-weight: 500; margin-bottom: 0.75rem; }
+    .about-text p { font-size: 15px; color: var(--text-muted); line-height: 1.7; }
+    .about-stat { text-align: center; min-width: 100px; }
+    .stat-num { font-size: 32px; font-weight: 500; color: var(--blue); }
+    .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+    .contact { padding: 2.5rem 2rem; text-align: center; background: var(--bg-secondary); }
+    .contact h2 { font-size: 20px; font-weight: 500; margin-bottom: 0.5rem; }
+    .contact p { font-size: 14px; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .contact-link { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; text-decoration: none; }
+
+    footer {
+      padding: 1.25rem 2rem; text-align: center;
+      font-size: 12px; color: var(--text-muted);
+      border-top: 0.5px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Teachers Kingdom</span>
+  <div class="nav-lang">
+    <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <p class="hero-tag" id="tag">Eğitim Evreni</p>
+  <h1 id="hero-h1">Sınır Yok. Sistem Yok. <span class="hero-accent">Sadece Eğitim.</span></h1>
+  <p id="hero-desc">Dil eğitiminden akademik danışmanlığa, yapay zeka araçlarından yaratıcı içeriğe — Teachers Kingdom tek çatı altında sunuyor.</p>
+  <div class="hero-slogan">You can do it</div>
+  <div class="hero-buttons">
+    <button class="btn-primary" id="btn-cta">Keşfet</button>
+    <button class="btn-secondary" id="btn-contact">İletişim</button>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="services">
+  <p class="section-title" id="services-title">Hizmetler</p>
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="service-icon"><i class="ti ti-language"></i></div>
+      <h3 id="s1t">Dil Eğitimi</h3>
+      <p id="s1d">İngilizce ve Almanca — bireysel ve kurumsal.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="ti ti-school"></i></div>
+      <h3 id="s2t">Akademik Danışmanlık</h3>
+      <p id="s2d">Her seviyede akademik destek ve rehberlik.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="ti ti-robot"></i></div>
+      <h3 id="s3t">Yapay Zeka Araçları</h3>
+      <p id="s3d">Eğitime özel AI çözümleri ve uygulamalar.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="ti ti-video"></i></div>
+      <h3 id="s4t">İçerik & Film</h3>
+      <p id="s4d">Çocuk animasyonu, senaryo ve yaratıcı içerik.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="about">
+  <div class="about-stat">
+    <div class="stat-num">18+</div>
+    <div class="stat-label" id="stat-label">Yıl Deneyim</div>
+  </div>
+  <div class="about-text">
+    <h2 id="about-title">Kamil Teacher hakkında</h2>
+    <p id="about-desc">On sekiz yılı aşkın deneyimiyle kurucusu olduğu Teachers Kingdom'ı; Türkiye'de ve dünyada, bireysel ve kurumsal düzeyde, sınırsız bir eğitim evreni olarak büyütüyor.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="contact">
+  <h2 id="contact-title">İletişime geçin</h2>
+  <p id="contact-desc">Bireysel ders, kurumsal eğitim veya iş birliği için ulaşın.</p>
+  <div class="contact-links">
+    <a href="mailto:info@teacherskingdom.com" class="contact-link"><i class="ti ti-mail"></i> <span id="c-mail">E-posta</span></a>
+    <a href="#" class="contact-link"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
+    <a href="#" class="contact-link"><i class="ti ti-brand-instagram"></i> Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <span id="footer-text">© 2026 Teachers Kingdom — You can do it</span>
+</footer>
+
+<script>
+const content = {
+  tr: {
+    tag: 'Eğitim Evreni',
+    h1: 'Sınır Yok. Sistem Yok. <span class="hero-accent">Sadece Eğitim.</span>',
+    desc: 'Dil eğitiminden akademik danışmanlığa, yapay zeka araçlarından yaratıcı içeriğe — Teachers Kingdom tek çatı altında sunuyor.',
+    cta: 'Keşfet', contact: 'İletişim',
+    sTitle: 'Hizmetler',
+    s1t: 'Dil Eğitimi', s1d: 'İngilizce ve Almanca — bireysel ve kurumsal.',
+    s2t: 'Akademik Danışmanlık', s2d: 'Her seviyede akademik destek ve rehberlik.',
+    s3t: 'Yapay Zeka Araçları', s3d: 'Eğitime özel AI çözümleri ve uygulamalar.',
+    s4t: 'İçerik & Film', s4d: 'Çocuk animasyonu, senaryo ve yaratıcı içerik.',
+    statLabel: 'Yıl Deneyim',
+    aboutTitle: 'Kamil Teacher hakkında',
+    aboutDesc: "On sekiz yılı aşkın deneyimiyle kurucusu olduğu Teachers Kingdom'ı; Türkiye'de ve dünyada, bireysel ve kurumsal düzeyde, sınırsız bir eğitim evreni olarak büyütüyor.",
+    cTitle: 'İletişime geçin',
+    cDesc: 'Bireysel ders, kurumsal eğitim veya iş birliği için ulaşın.',
+    cMail: 'E-posta',
+    footer: '© 2026 Teachers Kingdom — You can do it'
+  },
+  en: {
+    tag: 'Education Universe',
+    h1: 'No Limits. No Systems. <span class="hero-accent">Just Education.</span>',
+    desc: 'From language education to academic consulting, AI tools to creative content — Teachers Kingdom brings it all under one roof.',
+    cta: 'Explore', contact: 'Contact',
+    sTitle: 'Services',
+    s1t: 'Language Education', s1d: 'English & German — individual and corporate.',
+    s2t: 'Academic Consulting', s2d: 'Academic support and guidance at every level.',
+    s3t: 'AI Tools', s3d: 'AI solutions and apps built for education.',
+    s4t: 'Content & Film', s4d: "Children's animation, screenplay and creative content.",
+    statLabel: 'Years of Experience',
+    aboutTitle: 'About Kamil Teacher',
+    aboutDesc: 'With over eighteen years of experience, Kamil Teacher builds Teachers Kingdom as a limitless education universe — operating online and in-person, individually and corporately, in Turkey and globally.',
+    cTitle: 'Get in touch',
+    cDesc: 'Reach out for individual lessons, corporate training, or collaboration.',
+    cMail: 'Email',
+    footer: '© 2026 Teachers Kingdom — You can do it'
+  }
+};
+
+function setLang(lang) {
+  const c = content[lang];
+  document.getElementById('tag').textContent = c.tag;
+  document.getElementById('hero-h1').innerHTML = c.h1;
+  document.getElementById('hero-desc').textContent = c.desc;
+  document.getElementById('btn-cta').textContent = c.cta;
+  document.getElementById('btn-contact').textContent = c.contact;
+  document.getElementById('services-title').textContent = c.sTitle;
+  document.getElementById('s1t').textContent = c.s1t;
+  document.getElementById('s1d').textContent = c.s1d;
+  document.getElementById('s2t').textContent = c.s2t;
+  document.getElementById('s2d').textContent = c.s2d;
+  document.getElementById('s3t').textContent = c.s3t;
+  document.getElementById('s3d').textContent = c.s3d;
+  document.getElementById('s4t').textContent = c.s4t;
+  document.getElementById('s4d').textContent = c.s4d;
+  document.getElementById('stat-label').textContent = c.statLabel;
+  document.getElementById('about-title').textContent = c.aboutTitle;
+  document.getElementById('about-desc').textContent = c.aboutDesc;
+  document.getElementById('contact-title').textContent = c.cTitle;
+  document.getElementById('contact-desc').textContent = c.cDesc;
+  document.getElementById('c-mail').textContent = c.cMail;
+  document.getElementById('footer-text').textContent = c.footer;
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent === lang.toUpperCase());
+  });
+}
+</script>
+
+</body>
+</html>
